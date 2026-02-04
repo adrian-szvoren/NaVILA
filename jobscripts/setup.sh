@@ -34,6 +34,7 @@ python3 setup.py develop --all
 cd ..
 
 # Install VLN-CE Dependencies
+cd NaVILA
 python3 evaluation/scripts/habitat_sim_autofix.py # replace habitat_sim/utils/common.py
 pip install -r evaluation/requirements.txt
 
