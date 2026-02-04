@@ -4,7 +4,7 @@
 
 #$ -S /bin/bash
 #$ -j y
-#$ -N benchmark-openvla-full
+#$ -N navila_setup
 #$ -wd /SAN/intelsys/robot-vla-attack
 
 start=`date +%s`
