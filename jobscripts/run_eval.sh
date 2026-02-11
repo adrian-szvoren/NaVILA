@@ -4,7 +4,7 @@
 
 #$ -S /bin/bash
 #$ -j y
-#$ -N navila_setup
+#$ -N navila_eval
 #$ -wd /SAN/intelsys/robot-vla-attack
 
 start=`date +%s`
