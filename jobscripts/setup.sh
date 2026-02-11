@@ -14,27 +14,27 @@ nvidia-smi
 
 source /share/apps/source_files/python/python-3.10.0.source
 
-python3 -m venv navila-venv
+# python3 -m venv navila-venv
 source navila-venv/bin/activate
 pip install --upgrade pip
+cd NaVILA/evaluation
 
 # Build Habitat-Sim & Lab (v0.1.7) from Source
-git clone --branch v0.1.7 https://github.com/facebookresearch/habitat-sim.git
+# git clone --branch v0.1.7 https://github.com/facebookresearch/habitat-sim.git
 cd habitat-sim
 pip install -r requirements.txt
 python3 setup.py install --headless
 cd ..
 
-git clone --branch v0.1.7 git@github.com:facebookresearch/habitat-lab.git
+# git clone --branch v0.1.7 https://github.com/facebookresearch/habitat-lab.git
 cd habitat-lab
 python3 -m pip install -r requirements.txt
 python3 -m pip install -r habitat_baselines/rl/requirements.txt
 python3 -m pip install -r habitat_baselines/rl/ddppo/requirements.txt
 python3 setup.py develop --all
-cd ..
+cd ../..
 
 # Install VLN-CE Dependencies
-cd NaVILA
 python3 evaluation/scripts/habitat_sim_autofix.py # replace habitat_sim/utils/common.py
 pip install -r evaluation/requirements.txt
 
@@ -55,16 +55,17 @@ cp -rv ./llava/train/deepspeed_replace/* $site_pkg_path/deepspeed/
 pip install webdataset==0.1.103
 
 # Download dataset
-wget https://kaldir.vc.cit.tum.de/matterport/download_mp.py
+# wget https://kaldir.vc.cit.tum.de/matterport/download_mp.py
 # requires running with python 2.7
-python download_mp.py --task habitat -o data/scene_datasets/mp3d/
+# mkdir data/scene_datasets
+# python download_mp.py --task habitat -o data/scene_datasets/mp3d/
 
-wget https://drive.google.com/uc?id=1fo8F4NKgZDH-bPSdVU3cONAkt5EW-tyr
-mkdir data/datasets
-unzip R2R_VLNCE_v1-3_preprocessed.zip -d data/datasets/
+# wget https://drive.google.com/uc?id=1fo8F4NKgZDH-bPSdVU3cONAkt5EW-tyr
+# mkdir data/datasets
+# unzip R2R_VLNCE_v1-3_preprocessed.zip -d data/datasets/
 
-wget https://drive.google.com/file/d/145xzLjxBaNTbVgBfQ8e9EsBAV8W-SM0t/view
-unzip RxR_VLNCE_v0 -d data/datasets/
+# wget https://drive.google.com/file/d/145xzLjxBaNTbVgBfQ8e9EsBAV8W-SM0t/view
+# unzip RxR_VLNCE_v0 -d data/datasets/
 
 end=`date +%s`
 runtime=$((end-start))
