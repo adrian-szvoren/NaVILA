@@ -23,7 +23,7 @@ cd NaVILA/evaluation
 # git clone --branch v0.1.7 https://github.com/facebookresearch/habitat-sim.git
 cd habitat-sim
 pip install -r requirements.txt
-python3 setup.py install --headless
+python3 setup.py install --with-cuda
 cd ..
 
 # git clone --branch v0.1.7 https://github.com/facebookresearch/habitat-lab.git
@@ -53,6 +53,7 @@ cp -rv ./llava/train/transformers_replace/* $site_pkg_path/transformers/
 cp -rv ./llava/train/deepspeed_replace/* $site_pkg_path/deepspeed/
 
 pip install webdataset==0.1.103
+pip install tensorboard
 
 # Download dataset
 # wget https://kaldir.vc.cit.tum.de/matterport/download_mp.py
