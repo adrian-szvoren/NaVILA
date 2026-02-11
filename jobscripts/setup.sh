@@ -53,7 +53,7 @@ cp -rv ./llava/train/transformers_replace/* $site_pkg_path/transformers/
 cp -rv ./llava/train/deepspeed_replace/* $site_pkg_path/deepspeed/
 
 pip install webdataset==0.1.103
-pip install tensorboard
+pip install tensorboard lmdb
 
 # Download dataset
 # wget https://kaldir.vc.cit.tum.de/matterport/download_mp.py
